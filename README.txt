@@ -1,4 +1,4 @@
-Battle field stats 3.
+Battlefield stats 3.
 
 A small chrome extension that consumes a battlefield 3 gaming statistics public api from (http://bf3stats.com/).
 
