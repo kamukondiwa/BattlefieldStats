@@ -1,0 +1,15 @@
+{
+  "name": "BF3S",
+  "version": "1.0",
+  "description": "My attemmpt at sharing the good work being done @ http://bf3stats.com/. Discreetly keep up with Battlefield 3 stats when away from home ;)",
+  "permissions": [
+	"<all_urls>",
+    "tabs"
+  ],
+  "background_page": "background.html",
+  "browser_action": {
+	"default_icon": "icon.png",  
+    "default_title": "Click to get started.",
+    "popup": "popup.html"
+  }
+}
