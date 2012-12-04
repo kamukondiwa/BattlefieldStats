@@ -184,6 +184,10 @@ div.search input {
     width: 156px;
 }
 
+
+div.search input[type="radio"] {
+    width: 2em;
+}
 .loading {
     display: none;
     margin-left: 10px;

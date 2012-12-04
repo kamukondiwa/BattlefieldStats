@@ -1,6 +1,31 @@
-<link rel="stylesheet" type="text/css" href="css/bfs3.css" />
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
-<script src="js/scroller.js" type="text/javascript"></script>
-<script src="js/jquery.linq.min.js" type="text/javascript"></script>
-<script src="js/popup.js" type="text/javascript"></script>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/bfs3.css">
+		<script src="js/jquery.min.js" type="text/javascript">
+</script>
+		<script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript">
+</script>
+		<script src="js/scroller.js" type="text/javascript">
+</script>
+		<script src="js/jquery.linq.min.js" type="text/javascript">
+</script>
+		<script src="js/popup.js" type="text/javascript">
+</script>
+		<title></title>
+	</head>
+	<body>
+		<div id="search">
+			<div class="heading">
+				<label>BF3S</label><a href="#" class="previous"><img src="imgs/left.png"></a><a href="#" class="next"><img src="imgs/right.png"></a>
+			</div>
+			<div class="search">
+				<label for="users">Username:</label> <input id="users"><img id="loading" src="imgs/loading.gif" class="loading"><br/>
+				<label for="platform">PS3:</label><input type="radio" name="platform" value="ps3" checked="checked">
+				<label for="platform">Xbox 360:</label><input type="radio" name="platform" value="360">
+				<label for="platform">PC:</label><input type="radio" name="platform" value="pc">
+			</div>
+			<div class="accordion page active"></div>
+			<div class="accordion page"></div>
+		</div>
+	</body>
+</html>
