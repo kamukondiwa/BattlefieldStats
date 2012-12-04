@@ -44,7 +44,7 @@ var popup = {
 };
 
 popup.load = function() {
-	$('div.search input').focus();
+	$('#users').focus();
 
 	$('input[type="radio"]').click(function(evt) {
 		popup.context.platform = this.value;
