@@ -1,6 +1,6 @@
 {
   "name": "Battlefield 3 Stats",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "manifest_version": 2,
   "description": "Sharing the good work being done @ http://bf3stats.com/. Discreetly keep up with Battlefield 3 stats when away from home ;)",
   "background": "background.html",

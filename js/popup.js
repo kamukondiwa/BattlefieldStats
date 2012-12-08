@@ -243,7 +243,7 @@ popup.ranks = function(data) {
 	html += '<img class="rank" src="' + popup.gameImageUrl(data.stats.rank.img_medium) + '"/>';
 	html += '<div class="rank">';
 	html += '<label>' + data.stats.rank.name + ' (' + data.stats.rank.nr + ')</label>';
-	html += '<label>Score: ' + data.stats.scores.score + '</label>';
+	html += '<label>Score: ' + data.stats.rank.score + '</label>';
 	html += '</div>';
 	html += '<hr/>';
 	html += '<label class="rank-title">Next:</label>';
@@ -269,7 +269,7 @@ popup.unlocks = function(data) {
 		for(var index in unlocks) {
 			var unlock = unlocks[index];
 			if(unlock.curr != unlock.needed) {
-				var type = unlock.nname.toLowerCase();
+				var type = unlock.name.toLowerCase();
 				if(weapon[type] == undefined) continue;
 
 				var current = weapon[type];
@@ -414,18 +414,22 @@ popup.requestPlayer = function(request, response) {
 			player: request.term
 		},
 		success: function(data) {
-			if(data.status == 'data') {
+			var response = JSON.parse(data);
+			if(response.status == 'data') {
 				popup.clear();
-				popup.basic(data);
-				popup.general(data);
-				popup.combat(data);
-				popup.ranks(data);
-				popup.unlocks(data);
+				popup.basic(response);
+				popup.general(response);
+				popup.combat(response);
+				popup.ranks(response);
+				popup.unlocks(response);
 				popup.accordion();
 				popup.ratios();
 				popup.updateNavigation();
 				$('.box').scroller();
 			}
+		},
+		error: function(data){
+			alert(data);
 		}
 	});
 };
