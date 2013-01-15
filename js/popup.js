@@ -414,14 +414,13 @@ popup.requestPlayer = function(request, response) {
 			player: request.term
 		},
 		success: function(data) {
-			var response = JSON.parse(data);
-			if(response.status == 'data') {
+			if(data.status == 'data') {
 				popup.clear();
-				popup.basic(response);
-				popup.general(response);
-				popup.combat(response);
-				popup.ranks(response);
-				popup.unlocks(response);
+				popup.basic(data);
+				popup.general(data);
+				popup.combat(data);
+				popup.ranks(data);
+				popup.unlocks(data);
 				popup.accordion();
 				popup.ratios();
 				popup.updateNavigation();
