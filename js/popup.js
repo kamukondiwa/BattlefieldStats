@@ -270,19 +270,19 @@ popup.unlocks = function(data) {
 			var unlock = unlocks[index];
 			if(unlock.curr != unlock.needed) {
 				var type = unlock.name.toLowerCase();
-				if(weapon[type] == undefined) continue;
 
-				var current = weapon[type];
-				var timeUsed = weapon.time;
-				var avgKillRate = timeUsed / current;
+				var avgKillRate = weapon.time / unlock.curr;
 
-				var needed = unlock.needed - unlock.curr;
-				var timeNeeded = avgKillRate * needed;
+				if(isNaN(avgKillRate))continue;
 
-				var percentage = Math.round(current / needed * 100);
+				var remaining = unlock.needed - unlock.curr;
+				var timeRemaining = avgKillRate * remaining;
+
+				var percentage = Math.round(unlock.curr / unlock.needed * 100);
 
 				var upcomingUnlock = {
-					'timeNeeded': timeNeeded,
+					'timeRemaining': timeRemaining,
+					'killsRemaining':remaining,
 					'percentage': percentage,
 					'unlock': unlock,
 					'weapon': weapon
@@ -292,7 +292,7 @@ popup.unlocks = function(data) {
 		}
 	}
 
-	var source = $.Enumerable.From(upcomingUnlocks).Where("$.timeNeeded > 0 && $.percentage > 0").OrderBy("$.timeNeeded").Take(6).ToArray();
+	var source = $.Enumerable.From(upcomingUnlocks).Where("$.timeRemaining > 0 && $.percentage > 0").OrderBy("$.timeRemaining").Take(6).ToArray();
 
 	var html = '<div class="title">';
 	html += '<label>Upcoming unlocks</label>';
@@ -305,7 +305,8 @@ popup.unlocks = function(data) {
 		html += '<label class="long"><strong>' + unlock.unlock.name + ' </strong> for ' + unlock.weapon.name + '</label>';
 		html += '<img src="' + popup.gameImageUrl(unlock.unlock.img) + '" class="smallImg"/>';
 		html += '<label>' + unlock.percentage + '% Complete</label>';
-		html += '<label>approx ' + humanReadable(unlock.timeNeeded) + ' left</label>';
+		html += '<label>' + unlock.killsRemaining + ' kills remaining</label>';
+		html += '<label class="long">approx ' + humanReadable(unlock.timeRemaining) + ' left</label>';
 		if(index != source.length - 1) html += '<hr/>';
 		html += '</div>';
 	}
