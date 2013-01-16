@@ -306,7 +306,7 @@ popup.unlocks = function(data) {
 		html += '<img src="' + popup.gameImageUrl(unlock.unlock.img) + '" class="smallImg"/>';
 		html += '<label>' + unlock.percentage + '% Complete</label>';
 		html += '<label>' + unlock.killsRemaining + ' kills remaining</label>';
-		html += '<label class="long">approx ' + humanReadable(unlock.timeRemaining) + ' left</label>';
+		// html += '<label class="long">approx ' + humanReadable(unlock.timeRemaining) + ' left</label>';
 		if(index != source.length - 1) html += '<hr/>';
 		html += '</div>';
 	}
